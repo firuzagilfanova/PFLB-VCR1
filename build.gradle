@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.11.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.1'
+    implementation 'mysql:mysql-connector-java:8.0.33'
+    implementation 'junit:junit:4.13.2'
+    implementation 'org.seleniumhq.selenium:selenium-devtools-v115:4.11.0'
+
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    testImplementation 'io.qameta.allure:allure-junit4-aspect:2.13.6'
+    testImplementation 'io.qameta.allure:allure-junit5:2.13.6'
+    testImplementation 'io.qameta.allure:allure-commandline:2.13.6'
+    testImplementation 'io.qameta.allure:allure-assertj:2.13.6'
+    testImplementation 'io.qameta.allure:allure-rest-assured:2.13.6'
+    testImplementation 'io.qameta.allure:allure-java-commons:2.13.6'
+    testImplementation 'org.aspectj:aspectjweaver:1.9.7'
+
+    testImplementation 'io.rest-assured:rest-assured:5.3.0'
+}
+
+test {
+    useJUnitPlatform()
+}
