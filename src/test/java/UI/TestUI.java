@@ -1,8 +1,8 @@
 package UI;
 
-import org.junit.Test;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -27,6 +27,9 @@ import java.util.concurrent.TimeUnit;
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             envConfig = new EnvConfig();
             driver.get(TestUI.envConfig.baseUrl);
+            envConfig = new EnvConfig();
+            driver.get(envConfig.baseUrl);
+            authorizationPO = new AuthorizationPO(driver);
 
         }
         @AfterEach
