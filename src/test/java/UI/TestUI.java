@@ -41,7 +41,6 @@ import java.util.concurrent.TimeUnit;
         @Test
         public void authTest(){
 
-            sleep
             authorizationPO.login();
             authorizationPO.setLogin(envConfig.username);
             authorizationPO.setPassword(envConfig.userPassword);
