@@ -19,7 +19,7 @@ public class EnvConfig {
         else env = getenv;
         Properties properties = parseProperties();
         this.baseUrl = properties.getProperty("url");
-        this.username =  properties.getProperty("login");
+        this.username =  properties.getProperty("loginClient");
         this.userPassword = properties.getProperty("password");
         this.apiUrl = properties.getProperty("urlAPI");
 
