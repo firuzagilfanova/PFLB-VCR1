@@ -1,4 +1,4 @@
-package UI;
+package UI_UXCrowd;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,7 +14,7 @@ public class AuthorizationPO {
         this.driver = driver;
     }
 
-    @FindBy(xpath = "//*[@id=\"header-lk-button\"]")
+    @FindBy(css = "#header-lk-button")
     private WebElement clikcBTN;
     @FindBy(xpath = "//*[@id=\"login\"]")
     private WebElement login;
