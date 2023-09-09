@@ -1,5 +1,6 @@
 package UI;
 
+import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,7 +40,14 @@ import java.util.concurrent.TimeUnit;
         }
         @Test
         public void authTest(){
+
+            sleep
             authorizationPO.login();
+            authorizationPO.setLogin(envConfig.username);
+            authorizationPO.setPassword(envConfig.userPassword);
+            authorizationPO.setLogBTN();
+            String URL = driver.getCurrentUrl();
+            Assert.assertEquals(URL,envConfig.baseUrl);
         }
 
     }
