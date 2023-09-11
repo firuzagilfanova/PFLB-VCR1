@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -29,8 +30,6 @@ import java.util.concurrent.TimeUnit;
             driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.MINUTES);
             driver.manage().timeouts().implicitlyWait(10,TimeUnit.MINUTES);
             envConfig = new EnvConfig();
-            driver.get(TestUI.envConfig.baseUrl);
-            envConfig = new EnvConfig();
             driver.get(envConfig.baseUrl);
             authorizationPO = new AuthorizationPO(driver);
 
@@ -41,15 +40,15 @@ import java.util.concurrent.TimeUnit;
             driver.quit();
         }
         @Test
-        public void authTest(){
+        public void authTest() throws InterruptedException {
 
             authorizationPO.login();
             authorizationPO.setLogin(envConfig.username);
             authorizationPO.setPassword(envConfig.userPassword);
             authorizationPO.setLogBTN();
-            wait.until(ExpectedConditions.alertIsPresent());
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("sc-fzqOul")));
             String URL = driver.getCurrentUrl();
-            Assert.assertEquals(URL,envConfig.baseUrl);
+            Assert.assertEquals(envConfig.urlClient,URL);
         }
 
     }

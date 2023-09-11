@@ -10,10 +10,12 @@ public class EnvConfig {
     public final String username;
     public final String userPassword;
     public final String apiUrl;
+    public final String urlClient;
 
     private static final String ENV_NAME = "ACTIVE_ENVIRONMENT";
 
     public EnvConfig() {
+
         String getenv = System.getenv(ENV_NAME);
         if (getenv == null) env = "conf";
         else env = getenv;
@@ -22,6 +24,7 @@ public class EnvConfig {
         this.username =  properties.getProperty("loginClient");
         this.userPassword = properties.getProperty("password");
         this.apiUrl = properties.getProperty("urlAPI");
+        this.urlClient = properties.getProperty("urlClient");
 
     }
     public Properties parseProperties() {
