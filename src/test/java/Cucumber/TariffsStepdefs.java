@@ -31,7 +31,7 @@ public class TariffsStepdefs {
     }
 
     @Дано("Пользователь переходит на главную страницу")
-    public void пользовательЗаходитНаГлавнуюСтраницу() {
+    public void пользовательПереходитНаГлавнуюСтраницу() {
         driver.get(envConfig.baseUrl);
     }
 
