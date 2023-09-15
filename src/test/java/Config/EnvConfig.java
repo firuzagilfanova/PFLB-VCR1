@@ -11,6 +11,8 @@ public class EnvConfig {
     public final String userPassword;
     public final String apiUrl;
     public final String urlClient;
+    public final String urlClientProfile;
+    public final String urlClientTariff;
 
     private static final String ENV_NAME = "ACTIVE_ENVIRONMENT";
 
@@ -25,6 +27,8 @@ public class EnvConfig {
         this.userPassword = properties.getProperty("password");
         this.apiUrl = properties.getProperty("urlAPI");
         this.urlClient = properties.getProperty("urlClient");
+        this.urlClientProfile = properties.getProperty("urlClientProfile");
+        this.urlClientTariff = properties.getProperty("urlClientTariff");
 
     }
     public Properties parseProperties() {
