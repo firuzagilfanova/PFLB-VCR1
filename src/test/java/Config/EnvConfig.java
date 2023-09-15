@@ -11,6 +11,8 @@ public class EnvConfig {
     public final String userPassword;
     public final String apiUrl;
     public final String urlClient;
+    public final String urlClientProfile;
+    public final String urlClientTariff;
 
     private static final String ENV_NAME = "ACTIVE_ENVIRONMENT";
 
