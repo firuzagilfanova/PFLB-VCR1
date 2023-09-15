@@ -25,6 +25,8 @@ public class EnvConfig {
         this.userPassword = properties.getProperty("password");
         this.apiUrl = properties.getProperty("urlAPI");
         this.urlClient = properties.getProperty("urlClient");
+        this.urlClientProfile = properties.getProperty("urlClientProfile");
+        this.urlClientTariff = properties.getProperty("urlClientTariff");
 
     }
     public Properties parseProperties() {
