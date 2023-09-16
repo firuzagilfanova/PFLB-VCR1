@@ -18,10 +18,12 @@ import java.util.concurrent.TimeUnit;
 
     public class TestUI {
         public static AuthorizationPO authorizationPO;
-	public static FAQLink faqLink;
+	    public static FAQLink faqLink;
         public static WebDriver driver;
         public static WebDriverWait wait;
         public static EnvConfig envConfig;
+        public static PriceLink priceLink;
+        public static MetricsLink metricsLink;
 
         @BeforeEach
         public void init() {
@@ -34,7 +36,9 @@ import java.util.concurrent.TimeUnit;
             envConfig = new EnvConfig();
             driver.get(envConfig.baseUrl);
             authorizationPO = new AuthorizationPO(driver);
-	    faqLink = new FAQLink(driver);
+	        faqLink = new FAQLink(driver);
+            priceLink = new PriceLink(driver);
+            metricsLink = new MetricsLink(driver);
 
         }
         @AfterEach
@@ -73,7 +77,7 @@ import java.util.concurrent.TimeUnit;
             Assert.assertEquals(envConfig.urlClientTariff,URL);
         }
 
-	@Test
+	    @Test
         public void FaqTest() throws InterruptedException{
 
            faqLink.FaqLink();
@@ -82,6 +86,26 @@ import java.util.concurrent.TimeUnit;
            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("nl-faq__collapse-body")));
            String URL = driver.getCurrentUrl();
            Assert.assertEquals(envConfig.urlFAQ,URL);
+        }
+
+        @Test
+        public void PriceTest() throws InterruptedException{
+            priceLink.PriceLink();
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("newprice-title")));
+            priceLink.ChangeDuration();
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("newprice-price")));
+            String URL = driver.getCurrentUrl();
+            Assert.assertEquals(envConfig.urlPrice,URL);
+        }
+
+        @Test
+        public void MetricsTest() throws InterruptedException{
+            metricsLink.AboutLink();
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("section-start__text")));
+            metricsLink.MetricsLink();
+            wait.until(ExpectedConditions.presenceOfElementLocated(By.className("metrics-header-img")));
+            String URL = driver.getCurrentUrl();
+            Assert.assertEquals(envConfig.urlMetrics,URL);
         }
     }
 

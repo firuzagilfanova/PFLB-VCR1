@@ -36,7 +36,7 @@ public class TestAPI {
         String order = String.valueOf(given()
                 .when()
                 .contentType(ContentType.JSON)
-                .get(envConfig.baseUrl + "/api/public/order-info?id=28821087")
+                .get(envConfig.baseUrl + "/api/public/order-info?id="+envConfig.orderID)
                 .then().log().all());
         System.out.println(order);
     }
