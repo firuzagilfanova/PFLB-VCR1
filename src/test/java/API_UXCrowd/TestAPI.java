@@ -17,4 +17,15 @@ public class TestAPI {
                .then().statusCode(200).toString();
        System.out.println(name);
    }
+
+   @Test
+    public void getAllTariffs() {
+        List<TariffBody> tariffList = given()
+                .when()
+                .contentType(ContentType.JSON)
+                .get(envConfig.baseUrl + "/api/v2/tariff")
+                .then().log().all()
+                .extract().body().jsonPath().getList("$", TariffBody.class);
+        System.out.println(tariffList);
+    }
 }
